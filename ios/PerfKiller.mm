@@ -3,16 +3,39 @@
 @implementation PerfKiller
 RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_REMAP_METHOD(multiply,
-                 multiplyWithA:(double)a withB:(double)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
-{
-    NSNumber *result = @(a * b);
+RCT_REMAP_METHOD(blockNativeMainThread, withDurationMs:(double)durationMs resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSDate *date = [NSDate date];
+        while ([[NSDate date] timeIntervalSinceDate:date] < durationMs / 1000) {
+            //do nothing
+        }
+        resolve(nil);
+    });
+}
 
-    resolve(result);
+RCT_REMAP_METHOD(crashNativeMainThread, withMessage:(NSString *)message resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [NSException raise:@"PerfKillerCrash" format:@"%@", message];
+        resolve(nil);
+    });
+}
+
+
+- (void)blockNativeMainThread:(double)durationMs resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSDate *date = [NSDate date];
+        while ([[NSDate date] timeIntervalSinceDate:date] < durationMs / 1000) {
+            //do nothing
+        }
+        resolve(nil);
+    });
+}
+
+- (void)crashNativeMainThread:(NSString *)message resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [NSException raise:@"PerfKillerCrash" format:@"%@", message];
+        resolve(nil);
+    });
 }
 
 // Don't compile this code when we build for the old architecture.
