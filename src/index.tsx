@@ -24,6 +24,25 @@ const PerfKiller = PerfKillerModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return PerfKiller.multiply(a, b);
-}
+export const crashNativeMainThread = (
+  errorMessage: string = 'react-native-perf-killer crashed the native main thread'
+): Promise<void> => {
+  return PerfKiller.crashNativeMainThread(errorMessage);
+};
+
+export const blockNativeMainThread = (durationMs: number): Promise<void> => {
+  return PerfKiller.blockNativeMainThread(durationMs);
+};
+
+export const crashJavascriptThread = (
+  errorMessage: string = 'react-native-perf-killer crashed the javascript thread'
+) => {
+  throw new Error(errorMessage);
+};
+
+export const blockJavascriptThread = (durationMs: number) => {
+  const start = Date.now();
+  while (Date.now() - start < durationMs) {
+    // wait in while loop until duration is reached
+  }
+};
