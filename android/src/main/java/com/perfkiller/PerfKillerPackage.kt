@@ -9,7 +9,7 @@ import java.util.HashMap
 
 class PerfKillerPackage : TurboReactPackage() {
   override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? {
-    return if (name == PerfKillerModule.NAME) {
+    return if (name == PerfKillerModuleImpl.NAME) {
       PerfKillerModule(reactContext)
     } else {
       null
@@ -20,9 +20,9 @@ class PerfKillerPackage : TurboReactPackage() {
     return ReactModuleInfoProvider {
       val moduleInfos: MutableMap<String, ReactModuleInfo> = HashMap()
       val isTurboModule: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
-      moduleInfos[PerfKillerModule.NAME] = ReactModuleInfo(
-        PerfKillerModule.NAME,
-        PerfKillerModule.NAME,
+      moduleInfos[PerfKillerModuleImpl.NAME] = ReactModuleInfo(
+        PerfKillerModuleImpl.NAME,
+        PerfKillerModuleImpl.NAME,
         false,  // canOverrideExistingModule
         false,  // needsEagerInit
         true,  // hasConstants

@@ -13,24 +13,17 @@ class PerfKillerModule internal constructor(context: ReactApplicationContext) :
   ReactContextBaseJavaModule(context) {
 
   override fun getName(): String {
-    return NAME
+    return PerfKillerModuleImpl.NAME
   }
 
   @ReactMethod
   fun blockNativeMainThread(durationMs: Double, promise: Promise) {
-    Handler(Looper.getMainLooper()).post {
-        val startTime = Date().time
-        while((Date().time - startTime) < durationMs.toLong()) {
-          // do nothing
-        }
-    }
-    promise.resolve(null)
+    PerfKillerModuleImpl.blockNativeMainThread(durationMs, promise)
   }
 
   @ReactMethod
   fun crashNativeMainThread(message: String, promise: Promise) {
-    throw RuntimeException(message)
-    promise.resolve(null)
+    PerfKillerModuleImpl.crashNativeMainThread(message, promise)
   }
 
   companion object {
