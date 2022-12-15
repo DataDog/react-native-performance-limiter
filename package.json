@@ -1,7 +1,7 @@
 {
-  "name": "react-native-performance-killer",
+  "name": "react-native-performance-limiter",
   "version": "0.1.0",
-  "description": "A package for hacking the performance of React Native applications",
+  "description": "A package for deliberately limiting the performance of React Native applications",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "types": "lib/typescript/src/index.d.ts",
@@ -40,13 +40,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/DataDog/react-native-perf-killer",
+  "repository": "https://github.com/DataDog/react-native-performance-limiter",
   "author": "Datadog (https://github.com/DataDog)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/DataDog/react-native-perf-killer/issues"
+    "url": "https://github.com/DataDog/react-native-performance-limiter/issues"
   },
-  "homepage": "https://github.com/DataDog/react-native-perf-killer#readme",
+  "homepage": "https://github.com/DataDog/react-native-performance-limiter#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

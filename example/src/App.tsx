@@ -6,7 +6,7 @@ import {
   blockNativeMainThread,
   crashJavascriptThread,
   crashNativeMainThread,
-} from 'react-native-perf-killer';
+} from 'react-native-performance-limiter';
 
 export default function App() {
   const position = React.useRef(new Animated.Value(0)).current;

@@ -21,6 +21,6 @@ Include any error message or stack trace if available.
 **Additional context**
 
 - react-native version
-- react-native-performance-killer version
+- react-native-performance-limiter version
 
 - an explanation of what might cause the bug and/or how it can be fixed

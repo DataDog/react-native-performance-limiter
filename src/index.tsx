@@ -1,7 +1,7 @@
 import { NativeModules, Platform } from 'react-native';
 
 const LINKING_ERROR =
-  `The package 'react-native-perf-killer' doesn't seem to be linked. Make sure: \n\n` +
+  `The package 'react-native-performance-limiter' doesn't seem to be linked. Make sure: \n\n` +
   Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
@@ -9,12 +9,12 @@ const LINKING_ERROR =
 // @ts-expect-error
 const isTurboModuleEnabled = global.__turboModuleProxy != null;
 
-const PerfKillerModule = isTurboModuleEnabled
+const PerfLimiterModule = isTurboModuleEnabled
   ? require('./NativePerfKiller').default
   : NativeModules.PerfKiller;
 
-const PerfKiller = PerfKillerModule
-  ? PerfKillerModule
+const PerfLimiter = PerfLimiterModule
+  ? PerfLimiterModule
   : new Proxy(
       {},
       {
@@ -25,17 +25,17 @@ const PerfKiller = PerfKillerModule
     );
 
 export const crashNativeMainThread = (
-  errorMessage: string = 'react-native-perf-killer crashed the native main thread'
+  errorMessage: string = 'react-native-performance-limiter crashed the native main thread'
 ): Promise<void> => {
-  return PerfKiller.crashNativeMainThread(errorMessage);
+  return PerfLimiter.crashNativeMainThread(errorMessage);
 };
 
 export const blockNativeMainThread = (durationMs: number): Promise<void> => {
-  return PerfKiller.blockNativeMainThread(durationMs);
+  return PerfLimiter.blockNativeMainThread(durationMs);
 };
 
 export const crashJavascriptThread = (
-  errorMessage: string = 'react-native-perf-killer crashed the javascript thread'
+  errorMessage: string = 'react-native-performance-limiter crashed the javascript thread'
 ) => {
   throw new Error(errorMessage);
 };
