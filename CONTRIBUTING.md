@@ -1,143 +1,101 @@
 # Contributing
 
-Contributions are always welcome, no matter how large or small!
+First of all, thanks for contributing!
 
-We want this community to be friendly and respectful to each other. Please follow it in all your interactions with the project. Before contributing, please read the [code of conduct](./CODE_OF_CONDUCT.md).
+This document provides some basic guidelines for contributing to this repository.
+To propose improvements, feel free to submit a PR or open an Issue.
 
-## Development workflow
+## Setup your developer Environment
 
-To get started with the project, run `yarn` in the root directory to install the required dependencies for each package:
+To get started with the project, clone it, then run `yarn install` in the root directory to install the required dependencies for each package:
 
-```sh
-yarn
+```bash
+yarn install
 ```
 
-> While it's possible to use [`npm`](https://github.com/npm/cli), the tooling is built around [`yarn`](https://classic.yarnpkg.com/), so you'll have an easier time if you use `yarn` for development.
+## Testing your changes locally
 
-While developing, you can run the [example app](/example/) to test your changes. Any changes you make in your library's JavaScript code will be reflected in the example app without a rebuild. If you change any native code, then you'll need to rebuild the example app.
+We strongly encourage you to write unit tests.
+All commands and steps take the absolute path to the project as a parameter to make testing easier.
 
-To start the packager:
+You can test your changes in the example application located under the `example/` directory.
 
-```sh
-yarn example start
-```
+## Submitting Issues
 
-To run the example app on Android:
+Many great ideas for new features come from the community, and we'd be happy to
+consider yours!
 
-```sh
-yarn example android
-```
+To share your request, you can open an [issue](https://github.com/DataDog/react-native-performance-limiter/issues/new)
+with the details about what you'd like to see. At a minimum, please provide:
 
-To run the example app on iOS:
+- The goal of the new feature;
+- A description of how it might be used or behave;
+- Links to any important resources (e.g. Github repos, websites, screenshots,
+  specifications, diagrams).
 
-```sh
-yarn example ios
-```
+## Found a bug?
 
-By default, the example is configured to build with the old architecture. To run the example with the new architecture, you can do the following:
+For any urgent matters (such as outages) or issues concerning the Datadog service
+or UI, contact our support team via https://docs.datadoghq.com/help/ for direct,
+faster assistance.
 
-1. For Android, run:
+You may submit bug reports concerning React Native Performance Limiter by
+[opening a Github issue](https://github.com/DataDog/react-native-performance-limiter/issues/new).
+At a minimum, please provide:
 
-   ```sh
-   ORG_GRADLE_PROJECT_newArchEnabled=true yarn example android
-   ```
+- A description of the problem;
+- Steps to reproduce;
+- Expected behavior;
+- Actual behavior;
+- Errors (with stack traces) or warnings received;
+- Any details you can share about your configuration including:
+  - node version;
+  - react-native version;
+  - react-native-performance-limiter version;
 
-2. For iOS, run:
+If at all possible, also provide:
 
-   ```sh
-   RCT_NEW_ARCH_ENABLED=1 yarn example pods
-   yarn example ios
-   ```
+- Screenshots, links, or other visual aids that are publicly accessible;
+- Code sample or test that reproduces the problem;
+- An explanation of what causes the bug and/or how it can be fixed.
 
-If you are building for a different architecture than your previous build, make sure to remove the build folders first. You can run the following command to cleanup all build folders:
+Reports that include rich detail are better, and ones with code that reproduce
+the bug are best.
 
-```sh
-yarn clean
-```
+## Have a patch?
 
-To confirm that the app is running with the new architecture, you can check the Metro logs for a message like this:
+We welcome code contributions to the library, which you can
+[submit as a pull request](https://github.com/DataDog/react-native-performance-limiter/pull/new/master).
+Before you submit a PR, make sure that you first create an Issue to explain the
+bug or the feature your patch covers, and make sure another Issue or PR doesn't
+already exist.
 
-```sh
-Running "PerfKillerExample" with {"fabric":true,"initialProps":{"concurrentRoot":true},"rootTag":1}
-```
+To create a pull request:
 
-Note the `"fabric":true` and `"concurrentRoot":true` properties.
+1. **Fork the repository** from https://github.com/DataDog/react-native-performance-limiter ;
+2. **Make any changes** for your patch;
+3. **Write tests** that demonstrate how the feature works or how the bug is fixed;
+4. **Update any documentation**, especially for new features;
+5. **Submit the pull request** from your fork back to this
+   [repository](https://github.com/DataDog/react-native-performance-limiter) .
 
-Make sure your code passes TypeScript and ESLint. Run the following to verify:
+The pull request will be run through our CI pipeline, and a project member will
+review the changes with you. At a minimum, to be accepted and merged, pull
+requests must:
 
-```sh
-yarn typecheck
-yarn lint
-```
+- Have a stated goal and detailed description of the changes made;
+- Include thorough test coverage and documentation, where applicable;
+- Pass all tests and code quality checks (linting/coverage/benchmarks) on CI;
+- Receive at least one approval from a project member with push permissions.
 
-To fix formatting errors, run the following:
+Make sure that your code is clean and readable, that your commits are small and
+atomic, with a proper commit message.
 
-```sh
-yarn lint --fix
-```
+## Releasing a new version
 
-Remember to add tests for your change if possible. Run the unit tests by:
-
-```sh
-yarn test
-```
-
-To edit the Objective-C or Swift files, open `example/ios/PerfKillerExample.xcworkspace` in XCode and find the source files at `Pods > Development Pods > react-native-perf-killer`.
-
-To edit the Java or Kotlin files, open `example/android` in Android studio and find the source files at `react-native-perf-killer` under `Android`.
-
-
-### Commit message convention
-
-We follow the [conventional commits specification](https://www.conventionalcommits.org/en) for our commit messages:
-
-- `fix`: bug fixes, e.g. fix crash due to deprecated method.
-- `feat`: new features, e.g. add new method to the module.
-- `refactor`: code refactor, e.g. migrate from class components to hooks.
-- `docs`: changes into documentation, e.g. add usage example for the module..
-- `test`: adding or updating tests, e.g. add integration tests using detox.
-- `chore`: tooling changes, e.g. change CI config.
-
-Our pre-commit hooks verify that your commit message matches this format when committing.
-
-### Linting and tests
-
-[ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [TypeScript](https://www.typescriptlang.org/)
-
-We use [TypeScript](https://www.typescriptlang.org/) for type checking, [ESLint](https://eslint.org/) with [Prettier](https://prettier.io/) for linting and formatting the code, and [Jest](https://jestjs.io/) for testing.
-
-Our pre-commit hooks verify that the linter and tests pass when committing.
-
-### Publishing to npm
-
-We use [release-it](https://github.com/release-it/release-it) to make it easier to publish new versions. It handles common tasks like bumping version based on semver, creating tags and releases etc.
-
-To publish new versions, run the following:
-
-```sh
-yarn release
-```
-
-### Scripts
-
-The `package.json` file contains various scripts for common tasks:
-
-- `yarn bootstrap`: setup project by installing all dependencies and pods.
-- `yarn typecheck`: type-check files with TypeScript.
-- `yarn lint`: lint files with ESLint.
-- `yarn test`: run unit tests with Jest.
-- `yarn example start`: start the Metro server for the example app.
-- `yarn example android`: run the example app on Android.
-- `yarn example ios`: run the example app on iOS.
-
-### Sending a pull request
-
-> **Working on your first pull request?** You can learn how from this _free_ series: [How to Contribute to an Open Source Project on GitHub](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github).
-
-When you're sending a pull request:
-
-- Prefer small pull requests focused on one change.
-- Verify that linters and tests are passing.
-- Review the documentation to make sure it looks good.
-- Follow the pull request template when opening a pull request.
-- For pull requests that change the API or implementation, discuss with maintainers first by opening an issue.
+1. Create a branch named `release/x.y.z`
+1. Increment the version in package.json
+1. Run `yarn pack`, unpack the archive and check all relevant files are there
+1. Run `yarn build`
+1. Run `yarn publish`
+1. Create a release with a tag on Github
