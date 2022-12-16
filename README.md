@@ -14,6 +14,12 @@ npm install react-native-performance-limiter
 yarn install react-native-performance-limiter
 ```
 
+Then re-install your pods:
+
+```sh
+(cd ios && pod install)
+```
+
 ## Usage
 
 ### Block the javascript thread
