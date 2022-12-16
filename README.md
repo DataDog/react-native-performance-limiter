@@ -2,6 +2,8 @@
 
 A package for intentionally lowering performance and generating crashes on React Native applications.
 
+Use `blockJavascriptThread` and `blockNativeMainThread` to test your implementation of performance monitoring tools, `crashJavascriptThread` and `crashNativeMainThread` to test your implementation of crash reporting tools.
+
 ## Installation
 
 ```sh
