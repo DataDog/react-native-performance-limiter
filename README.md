@@ -11,7 +11,7 @@ npm install react-native-performance-limiter
 ```
 
 ```sh
-yarn install react-native-performance-limiter
+yarn add react-native-performance-limiter
 ```
 
 Then re-install your pods:
