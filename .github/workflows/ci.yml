@@ -30,4 +30,5 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '18.0.0'
+      - run: yarn install --immutable
       - run: yarn check-licenses
