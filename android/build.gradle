@@ -90,13 +90,11 @@ def resolveReactNativeDirectory() {
     // This will make sure that we get installation location correctly in monorepos
     def reactNativePackageJsonPathStdout = new ByteArrayOutputStream()
 
-    exec {
-      commandLine("node", "-p", "require.resolve('react-native/package.json')")
-      ignoreExitValue true
-      standardOutput = reactNativePackageJsonPathStdout
+    def reactNativePathProvider = providers.exec {
+      commandLine "node", "-p", "require.resolve('react-native/package.json')"
     }
-
-    def reactNativeFromProjectNodeModules = file(reactNativePackageJsonPathStdout.toString().trim()).getParentFile();
+    def reactNativePath = reactNativePathProvider.standardOutput.asText.get().trim()
+    def reactNativeFromProjectNodeModules = file(reactNativePath).getParentFile();
 
     if (reactNativeFromProjectNodeModules.exists()) {
       return reactNativeFromProjectNodeModules
