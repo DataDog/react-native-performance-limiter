@@ -65,9 +65,6 @@
     "react-native-builder-bob": "^0.20.3",
     "typescript": "^4.5.2"
   },
-  "resolutions": {
-    "@types/react": "17.0.21"
-  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
@@ -131,5 +128,36 @@
         }
       ]
     ]
+  },
+  "resolutions": {
+    "@types/react": "17.0.21",
+    "shell-quote@npm:^1.6.1": "npm:^1.10.0",
+    "shell-quote@npm:^1.7.3": "npm:^1.10.0",
+    "minimatch@npm:^3.0.2": "npm:^3.1.5",
+    "minimatch@npm:^3.0.4": "npm:^3.1.5",
+    "minimatch@npm:^3.0.5": "npm:^3.1.5",
+    "minimatch@npm:^3.1.1": "npm:^3.1.5",
+    "minimatch@npm:^3.1.2": "npm:^3.1.5",
+    "minimatch@npm:^5.0.1": "npm:^5.1.9",
+    "minimatch@npm:^9.0.1": "npm:^9.0.9",
+    "lodash@npm:^4.17.21": "npm:^4.18.1",
+    "@babel/traverse@npm:^7.14.0": "npm:^7.29.8",
+    "@babel/traverse@npm:^7.22.5": "npm:^7.29.8",
+    "@babel/traverse@npm:^7.7.2": "npm:^7.29.8",
+    "@babel/traverse@npm:^7.7.4": "npm:^7.29.8",
+    "brace-expansion@npm:^1.1.7": "npm:^1.1.18",
+    "brace-expansion@npm:^2.0.1": "npm:^2.1.4",
+    "ws@npm:^6.1.4": "npm:^6.2.6",
+    "ws@npm:^7": "npm:^7.5.13",
+    "ws@npm:^7.5.1": "npm:^7.5.13",
+    "js-yaml@npm:^3.13.1": "npm:^3.15.1",
+    "js-yaml@npm:^4.1.0": "npm:^4.3.1",
+    "flatted@npm:^3.1.0": "npm:^3.4.4",
+    "picomatch@npm:^2.0.4": "npm:^2.3.2",
+    "picomatch@npm:^2.2.3": "npm:^2.3.2",
+    "picomatch@npm:^2.3.1": "npm:^2.3.2",
+    "cross-spawn@npm:^7.0.0": "npm:^7.0.6",
+    "cross-spawn@npm:^7.0.2": "npm:^7.0.6",
+    "cross-spawn@npm:^7.0.3": "npm:^7.0.6"
   }
 }
