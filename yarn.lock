@@ -2591,9 +2591,9 @@ __metadata:
   linkType: hard
 
 "@types/scheduler@npm:*":
-  version: 0.26.0
-  resolution: "@types/scheduler@npm:0.26.0"
-  checksum: 295ede5e7f991c7c52f9ed8e58d3076526be9a560e59ae11bf1c1414f9755a17bd750f3bfed4657b118283d1eb082bb27dcbe2eadf335a982b0c3b6a562771c2
+  version: 0.28.0
+  resolution: "@types/scheduler@npm:0.28.0"
+  checksum: 32a3473fcd3d60ac8ce49984edfb730c777e88a3cdeafc07c699442aa170f585eb59a22b4ae94069446900a57aaa2468e336248af0d58dabdd4728c9736d6323
   languageName: node
   linkType: hard
 
