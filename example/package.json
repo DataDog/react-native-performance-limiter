@@ -41,6 +41,7 @@
     "@sideway/formula@npm:^3.0.0": "npm:^3.0.1",
     "micromatch@npm:^4.0.4": "npm:^4.0.8",
     "browserslist@npm:^4.21.4": "npm:^4.28.9",
-    "browserslist@npm:^4.24.0": "npm:^4.28.9"
+    "browserslist@npm:^4.24.0": "npm:^4.28.9",
+    "compression@npm:^1.7.1": "npm:^1.8.2"
   }
 }
