@@ -35,8 +35,6 @@
     "picomatch@npm:^2.3.1": "npm:^2.3.2",
     "braces@npm:^3.0.2": "npm:^3.0.3",
     "cross-spawn@npm:^6.0.0": "npm:^6.0.6",
-    "semver@npm:^5.5.0": "npm:^5.7.2",
-    "semver@npm:^5.6.0": "npm:^5.7.2",
     "micromatch@npm:^4.0.4": "npm:^4.0.8",
     "browserslist@npm:^4.21.4": "npm:^4.28.9",
     "browserslist@npm:^4.24.0": "npm:^4.28.9",
